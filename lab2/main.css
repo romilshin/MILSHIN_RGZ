@@ -9,7 +9,7 @@ main {
     background-color: lightgreen;
     color:black;
     font-family: Arial;
-    margin: 0px;
+    margin: 0px 0px 40px;
 }
 
 footer {
@@ -17,6 +17,10 @@ footer {
     color:brown;
     font-family: Arial;
     margin: 0px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 header {
