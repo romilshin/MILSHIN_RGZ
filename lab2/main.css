@@ -26,6 +26,19 @@ header {
     margin: 0px;
 }
 
+div.menu {
+    border: 7px solid green;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+    background-color:mediumaquamarine;
+}
+
+div.menu:hover {
+    background-color: lightblue;
+    box-shadow: 0 0 15px black;
+}
+
 a {
     color: black;
     text-decoration: none;
