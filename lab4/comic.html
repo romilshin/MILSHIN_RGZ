@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комикс</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../lab2/main.css">
+    <style>
+
+       
+        section {
+            opacity: 0;
+            visibility: hidden;
+            
+        }
+        
+        img:hover+section {
+            opacity: 1;
+            visibility: visible;
+            transition: 1s;
+            
+        }
+
+
+        .cloud1 {
+            position: relative;
+            width: 200px;
+            height: 140px;
+            background-color: rgb(212, 224, 255);
+            box-shadow: 5px 5px 5px black;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+            line-height: 70px;
+            text-align: center;
+            border-radius: 50%;
+            left: 900px;
+            bottom:700px;
+            text-align: center;
+            line-height: 140px;
+            /* z-index: 1; */
+        }
+
+        .cloud2 {
+            position: relative;
+            width: 170px;
+            height: 120px;
+            background-color: rgb(212, 224, 255);
+            box-shadow: 5px 5px 5px black;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+            line-height: 70px;
+            text-align: center;
+            border-radius: 100px;
+            left: 850px;
+            bottom:720px;
+            text-align: center;
+            line-height: 140px;
+            /* z-index: -1; */
+        }
+
+        .cloud3 {
+            position: relative;
+            width: 150px;
+            height: 110px;
+            background-color: rgb(212, 224, 255);
+            box-shadow: 5px 5px 5px black;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+            line-height: 70px;
+            text-align: center;
+            border-radius: 100px;
+            left: 750px;
+            bottom:750px;
+            text-align: center;
+            line-height: 140px;
+            /* z-index: -1; */
+        }
+
+        .cloud4 {
+            position: relative;
+            width: 130px;
+            height: 100px;
+            background-color: rgb(212, 224, 255);
+            box-shadow: 5px 5px 5px black;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+            line-height: 70px;
+            text-align: center;
+            border-radius: 100px;
+            left: 650px;
+            bottom:790px;
+            text-align: center;
+            line-height: 140px;
+            /* z-index: -1; */
+        }
+
+        .cloud5 {
+            position: relative;
+            width: 100px;
+            height: 80px;
+            background-color: rgb(212, 224, 255);
+            box-shadow: 5px 5px 5px black;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+            line-height: 70px;
+            text-align: center;
+            border-radius: 100px;
+            left: 550px;
+            bottom:850px;
+            text-align: center;
+            line-height: 140px;
+            /* z-index: -1; */
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <img src="homer.png" width="1000">
+        <section>
+            <div class="cloud1"><b>ыыаыэээыэ</b></div>
+            <div class="cloud2"></div>
+            <div class="cloud3"></div>
+            <div class="cloud4"></div>
+            <div class="cloud5"></div>
+        </section>
+        
+    </main>
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+    
+</body>
+</html>
