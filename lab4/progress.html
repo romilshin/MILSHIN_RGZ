@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель прогресса</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../lab2/main.css">
+<style>
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h2 {
+            text-align: center;
+            color: red;
+        }
+        .div1 {
+            border: 1px solid;
+            height: 200px;
+            width: 400px;
+            padding: 5px;
+            top: 100px;
+            position: relative;
+            background-color: hwb(48 96% 2%);
+        }
+
+        .div2 {
+            border: 1px solid;
+            height: 30px;
+            width: 390px;
+            margin: 5px;
+            position: relative;
+            bottom: 30px;
+        }
+
+        .div2::before {
+            content: '';
+            position: absolute;
+            height: 30px;
+            width: 0%;
+            background-color: red;
+            transition: width 5s linear;
+        }
+        
+        button {
+            display: block;
+            width: 200px;
+            height: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 2px 2px 2px #554f4fe9;
+            position: relative;
+            top: 50px;
+            border-radius: 100px;
+            background-color: red;
+            color: aliceblue;
+        }
+
+        button:hover {
+            box-shadow: 3px 3px 3px black;
+        }
+
+        button:active {
+            box-shadow: none;
+        }
+
+        button:active+ .div2::before {
+            width: 390px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div class="div1">
+            <h2>Степень прогресса</h2>
+            <button>Нажмите и удерживайте</button>
+            <div class="div2"></div>
+        </div>
+    </main>
+
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+    
+</body>
+</html>
