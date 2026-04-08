@@ -6,10 +6,17 @@ body {
 }
 
 main {
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
     color:black;
     font-family: Arial;
     margin: 0px 0px 40px;
+    z-index: 0;
+    position: relative;
+}
+
+main:hover {
+    z-index: 0;
+    position: relative;
 }
 
 footer {

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../lab2/main.css">
+
+    <style>
+        div {
+            width: 300px ;
+            height: 70px ;
+            background-color: white;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+            line-height: 70px;
+            text-align: center;
+        }
+
+        .position-relative {
+            position: relative;
+            left: 150px;
+            top: -130px;
+            z-index: -1;
+
+        }
+
+        .position-relative:hover {
+            z-index: 1;
+
+        }
+
+        .position-absolute1 {
+            position: absolute;
+            left: 800px;
+            top: 300px;
+        }
+
+        .position-absolute1:hover {
+            z-index: 1;
+            width: 315px ;
+            height: 73px ;
+            background-color: blanchedalmond;
+            box-shadow: 5px 5px 5px black ;
+            transition: 2s;
+        }
+
+        .position-absolute2 {
+            position: absolute;
+            left: 900px;
+            bottom: 50px;
+        }
+
+        .position-absolute2:hover {
+            z-index: 1;
+            width: 315px ;
+            height: 73px ;
+            background-color: blanchedalmond;
+            box-shadow: 5px 5px 5px black ;
+            transition: 2s;
+        }
+
+        .position-absolute3 {
+            position: absolute;
+            left: 800px;
+        }
+
+        .position-absolute3:hover {
+            z-index: 1;
+            width: 315px ;
+            height: 73px ;
+            background-color: blanchedalmond;
+            box-shadow: 5px 5px 5px black ;
+            transition: 2s;
+        }
+
+        .position-absolute4 {
+            position: absolute;
+            left: 950px;
+            top: 400px;
+        }
+
+        .position-absolute4:hover {
+            z-index: 1;
+            width: 315px ;
+            height: 73px ;
+            background-color: blanchedalmond;
+            box-shadow: 5px 5px 5px black ;
+            transition: 2s;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-relative">relative</div>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-absolute1">Absolute1</div>
+        <div class="position-absolute2">Absolute2</div>
+        <div class="position-absolute3">Absolute3</div>
+        <div class="position-absolute4">Absolute4</div>
+        <div>static</div>
+    </main>
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+    
+</body>
+</html>
