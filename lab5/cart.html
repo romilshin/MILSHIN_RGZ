@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мильшин Роман Антонович. Корзина</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../lab2/main.css">
+    <script>
+        function Sum() {
+            let inputA = document.getElementById("numberA");
+            let a = parseInt(inputA.value);
+
+            let inputB = document.getElementById("numberB");
+            let b = parseInt(inputB.value);
+
+            let inputC = document.getElementById("numberC");
+            let c = parseInt(inputC.value);
+
+            let inputD = document.getElementById("numberD");
+            let d = parseInt(inputD.value);
+
+            let inputE = document.getElementById("numberE");
+            let e = parseInt(inputE.value);
+
+
+            if(((isNaN(a)) || (isNaN(b)) || (isNaN(c)) || (isNaN(d)) || (isNaN(e))) || ((a < 0) || (b < 0) || (c < 0) || (d < 0) || (e < 0)))  {
+                alert("Некорректный ввод");
+                return;
+            }
+            else {
+                let result = (a * 300) + (b * 300) + (c * 50) + (d * 100) + (e * 10);
+                document.querySelector(".rez").innerHTML = "<output>Итого: " + result + " рублей</output>";
+            }
+        }
+
+        function Clear() {
+            document.getElementById("numberA").value = "";
+            document.getElementById("numberB").value = "";
+            document.getElementById("numberC").value = "";
+            document.getElementById("numberD").value = "";
+            document.getElementById("numberE").value = "";
+            document.querySelector(".rez").innerHTML = "";
+        }
+    </script>
+    
+    <style>
+        section {
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 350px;
+            margin: 0 auto;
+            background-color:white;
+            display: inline-block;
+            height: 800px;
+            text-align: center;
+            line-height: 80px;
+        }
+
+        .button {
+            border: 1px solid black;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 55px;
+            background-color: gray;
+            margin-left: 75px;
+            cursor: pointer;
+        }
+
+        .button1 {
+            border: 1px solid black;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 55px;
+            background-color: gray;
+            margin-left: 75px;
+            cursor: pointer;
+            margin-top: 50px;
+        }
+        
+        .rez {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <section>
+            <div><h1>Корзина товаров</h1></div>
+            <div>Колбаса (300р/шт)  <input placeholder="Введите количество" type="number" value="" id="numberA"></div>
+            <div>Сыр (300р/шт)  <input placeholder="Введите количество" type="number" value="" id="numberB"></div>
+            <div>Хлеб (50р/шт) <input placeholder="Введите количество" type="number" value="" id="numberC"></div>
+            <div>Молоко (100 р/л) <input placeholder="Введите количество" type="number" value="" id="numberD"></div>
+            <div>Яйца (10р/шт) <input placeholder="Введите количество" type="number" value="" id="numberE"></div>
+            <div class="button" onclick="Sum()">Рассчитать</div>
+            <div class="rez"></div>
+            <div class="button1" onclick="Clear()">Очистить</div>
+        </section>
+        
+    </main>
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+    
+</body>
+</html>
