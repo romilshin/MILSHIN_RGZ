@@ -28,6 +28,12 @@
             document.getElementById('contrastImage').style.filter = 'contrast(' + value + ')';
         }
 
+        function grayscaleChange() {
+            let value = document.getElementById('grayscaleValue').value + '%';
+            document.getElementById('grayscaleOutput').innerText = value;
+            document.getElementById('grayscaleImage').style.filter = 'grayscale(' + value + ')';
+        }
+
     </script>
 
     <style>
@@ -58,6 +64,12 @@
             <span id="contrastOutput"></span>
         </div>
         <div><img src="litvin2.png" id="contrastImage" width="300" height="200"></div>
+        <div>
+            Фильтр grayscale:
+            <input type="range" min="0" max="100" value="0" onchange="grayscaleChange()" id="grayscaleValue">
+            <span id="grayscaleOutput"></span>
+        </div>
+        <div><img src="litvin3.png" id="grayscaleImage" width="300" height="200"></div>
         <div>
     </main>
 
