@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мильшин Роман Антонович. Скрытие кругов</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../lab2/main.css">
+
+    <script>
+        function hideCircle(circleId) {
+            var circle = document.getElementById(circleId);
+            if (circle) {
+                circle.style.opacity = '0';
+                circle.style.transition = '0.5s';
+            }
+        }
+
+        function Reset() {
+            for (var i = 1; i <= 10; i++) {
+                var circle = document.getElementById(i);
+                if (circle) {
+                    circle.style.opacity = '1';
+                    circle.style.transition = '0.5s';
+                }
+            }
+        }
+    </script>
+
+    <style>
+        div {
+            border: 1px solid black;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .button {
+            background-color: rgb(206, 206, 206);
+            width: 100px;
+            border-radius: 10%;
+            cursor: pointer;
+        }
+
+        .circle1 {
+            position: absolute;
+            background-color: white;
+            left: 100px;
+            top: 100px;
+            cursor: pointer;
+        }
+
+        .circle2 {
+            position: absolute;
+            background-color: green;
+            left: 460px;
+            top: 500px;
+            cursor: pointer;
+        }
+
+        .circle3 {
+            position: absolute;
+            background-color: yellow;
+            left: 352px;
+            top: 165px;
+            cursor: pointer;
+        }
+
+        .circle4 {
+            position: absolute;
+            background-color: blue;
+            left: 234px;
+            top: 175px;
+            cursor: pointer;
+        }
+
+        .circle5 {
+            position: absolute;
+            background-color: red;
+            left: 654px;
+            top: 574px;
+            cursor: pointer;
+        }
+
+        .circle6 {
+            position: absolute;
+            background-color: purple;
+            left: 254px;
+            top: 100px;
+            cursor: pointer;
+        }
+
+        .circle7 {
+            position: absolute;
+            background-color: gray;
+            left: 745px;
+            top: 100px;
+            cursor: pointer;
+        }
+
+        .circle8 {
+            position: absolute;
+            background-color: brown;
+            left: 274px;
+            top: 353px;
+            cursor: pointer;
+        }
+
+        .circle9 {
+            position: absolute;
+            background-color: pink;
+            left: 543px;
+            top: 765px;
+            cursor: pointer;
+        }
+
+        .circle10 {
+            position: absolute;
+            background-color: orange;
+            left: 453px;
+            top: 164px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div class="button" onclick="Reset()">Сброс</div>
+        <div class="circle1" id="1" onclick="hideCircle(1)">1</div>
+        <div class="circle2" id="2" onclick="hideCircle(2)">2</div>
+        <div class="circle3" id="3" onclick="hideCircle(3)">3</div>
+        <div class="circle4" id="4" onclick="hideCircle(4)">4</div>
+        <div class="circle5" id="5" onclick="hideCircle(5)">5</div>
+        <div class="circle6" id="6" onclick="hideCircle(6)">6</div>
+        <div class="circle7" id="7" onclick="hideCircle(7)">7</div>
+        <div class="circle8" id="8" onclick="hideCircle(8)">8</div>
+        <div class="circle9" id="9" onclick="hideCircle(9)">9</div>
+        <div class="circle10" id="10" onclick="hideCircle(10)">10</div>
+    </main>
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+    
+</body>
+</html>
