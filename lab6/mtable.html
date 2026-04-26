@@ -11,10 +11,40 @@
 
     <script>
         function showMutipleTable() {
+            let inputA = document.getElementById("numberA");
+            let inputB = document.getElementById("numberB");
+            let inputC = document.getElementById("numberC");
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let c = parseInt(inputC.value);
+
+            
+
+            if(isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert('Введены не все значения!')
+                return;
+            }
+
+            if(b > c) {
+                alert('Значение, с которого начинается таблица не может быть больше того, на котором таблица заканчивается!');
+                inputB.focus();
+                inputB.select();
+                inputB.style.color = "red";
+                inputB.style.borderColor = "red";
+                inputC.style.color = "red";
+                inputC.style.borderColor = "red";
+                return;
+            }
+            inputA.style.color = "";
+            inputA.style.borderColor = "";
+            inputB.style.color = "";
+            inputB.style.borderColor = "";
+
             let tbl = document.getElementById('mtable');
             tbl.innerHTML = '<h1>Таблица умножения</h1>';
-            for(i = 1; i <= 10; i++) {
-                let s = `<div class="mult">${i} * 7 = ${i*7}</div>`;
+            for(b; b <= c; b++) {
+                let s = `<div class="mult">${b} * ${a} = ${b*a}</div>`;
                 tbl.innerHTML += s;
             }
         }
@@ -24,29 +54,45 @@
         .mult {
             border: 1px solid black;
             border-radius: 20%;
-            width: 100px;
             padding: 2px;
             background-color: white;
-            font-size: 20px;
+            font-size: 24px;
+            width: fit-content;
         }
         
         #mtable {
-            width: auto;
+            /* margin: 2px; */
             display: inline-block;
         }
         
         #mtable h1 {
             border: none;
         }
+
+        .button1 {
+            border: 1px solid black;
+            border-radius: 10%;
+            background-color: gray;
+            font-size: 24px;
+            width: 100px;
+            cursor: pointer;
+        }
     </style>
 </head>
-<body onload="showMutipleTable()"> 
+<body> 
     <header>
         НГТУ, ФБ, Лабораторная работа 6
     </header>
 
     <main>
         <div id="mtable"></div>
+        <hr>
+        <label>Умножить на: <input type="number" value="" id="numberA"></label><br>
+        <label>Начать с: <input type="number" value="" id="numberB"></label><br>
+        <label>Закончить на: <input type="number" value="" id="numberC"></label><br>
+        <div class="button1" onclick="showMutipleTable()">Таблица</div>
+
+
     </main>
 
     <footer>
