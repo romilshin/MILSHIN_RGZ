@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мильшин Роман Антонович. Объекты</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../main.css">
+    <script src="books.js"></script>
+    <script>
+        function showBooks() {
+            const bookList = document.getElementById('booklist');
+            for(let i = 0; i < books.length; i++) {
+                const bgColor = books[i].bestseller ? "style='background-color: #ffeb99;'" : "";
+                if (books[i].bestseller == true) {
+                    if (books[i].stock == true) {
+                        bookList.innerHTML += `
+                            <div ${ bgColor }>
+                            <b>${ books[i].author }.</b>
+                            <i>${ books[i].name }</i>
+                            &mdash; ${ books[i].publicationYear }
+                            <span>Цена: ${ books[i].price}</span>
+                            <sup style='background-color: #ffeb99;'>Бестселлер!</sup>
+                            </div>
+                        `
+                    }
+
+                    else {
+                        bookList.innerHTML += `
+                            <div ${ bgColor }>
+                            <b>${ books[i].author }.</b>
+                            <i>${ books[i].name }</i>
+                            &mdash; ${ books[i].publicationYear }
+                            <span>Цена: ${ books[i].price}</span>
+                            <sup style='background-color: #ffeb99;'>Бестселлер!</sup>
+                            <b style='background-color: red;'>Нет в наличии!</b>
+                            </div>
+                        `
+                    }
+                    
+                }
+
+                else {
+                    if (books[i].stock == true) {
+                        bookList.innerHTML += `
+                        <div ${ bgColor }>
+                            <b>${ books[i].author }.</b>
+                            <i>${ books[i].name }</i>
+                            &mdash; ${ books[i].publicationYear }
+                            <span>Цена: ${ books[i].price}</span>
+                        </div>
+                    `
+                    }
+                    else {
+                        bookList.innerHTML += `
+                            <div ${ bgColor }>
+                            <b>${ books[i].author }.</b>
+                            <i>${ books[i].name }</i>
+                            &mdash; ${ books[i].publicationYear }
+                            <span>Цена: ${ books[i].price}</span>
+                            <b style='background-color: red; '>Нет в наличии!</b>
+                            </div>
+                        `
+                    }
+                }
+                
+                
+                
+            }
+            
+        }
+    </script>
+    
+    <style>
+        div {
+            width: fit-content;
+        }
+
+        span {
+            background-color: rgb(225, 247, 255);
+        }
+
+        h1 {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 48px;
+        }
+        
+        #booklist {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 24px;
+
+        }
+    </style>
+</head>
+<body onload="showBooks()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <h1>Список книг</h1>
+        <div id="booklist"></div>
+    </main>
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+    
+</body>
+</html>
