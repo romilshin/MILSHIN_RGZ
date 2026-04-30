@@ -13,10 +13,48 @@
     <script>
         function showDate() {
             let out = document.getElementById('current-date');
+            out.innerHTML = '';
             let today = new Date();
             for (let i = 0; i < dates.length; i++) {
                 out.innerHTML += `<div>Дата и время для локали ${ dates[i].country}: ${today.toLocaleString(dates[i].local)}</div>`;
             }
+        }
+
+        function changeColors() {
+            const header = document.getElementsByTagName('header')[0];
+            const rgb = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+            header.style.color = rgb;
+        }
+
+        let timerNum;
+        
+        function startChangeColors() {
+            changeColors();
+            timerNum = setInterval(changeColors, 500);
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('stop-btn').disabled = false;
+        }
+
+        function stopChangeColors() {
+            clearInterval(timerNum);
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('stop-btn').disabled = true;
+        }
+
+        let timeupdt;
+
+        function startChangeTime() {
+            showDate();
+            timeupdt = setInterval(showDate, 1000);
+            document.getElementById('start-time').disabled = true;
+            document.getElementById('stop-time').disabled = false;
+
+        }
+
+        function stopChangeTime() {
+            clearInterval(timeupdt);
+            document.getElementById('start-time').disabled = false;
+            document.getElementById('stop-time').disabled = true;
         }
     </script>
 
@@ -29,6 +67,8 @@
             margin: 10px;
             border-radius: 10px;
         }
+
+        
     </style>
 </head>
 <body onload="showDate()">
@@ -38,7 +78,12 @@
 
     <main>
        <div id="current-date"></div>
-
+        <div>
+            <button onclick="startChangeColors()" id="start-btn">Старт</button>
+            <button onclick="stopChangeColors()" id="stop-btn">Стоп</button>
+            <button onclick="startChangeTime()" id="start-time">Обновлять время</button>
+            <button onclick="stopChangeTime()" id="stop-time">Остановить обновление времени</button>
+        </div>
 
     </main>
 
