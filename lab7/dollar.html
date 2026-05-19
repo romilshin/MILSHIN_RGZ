@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мильшин Роман Антонович. Доллар</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../main.css">
+    <script src="dollar-data.js"></script>
+
+    <style>
+
+        table {
+            background-color: white;
+        }
+
+    </style>
+
+        <script>
+        function showExchange() {
+            // const exchange = [
+            //     74.8014, 75.4388, 75.3448, 75.2246, 74.6209, 74.2963, 73.7878, 73.3420, 73.1385, 73.1275
+            // ];
+            let table = document.getElementById('dollar-table');
+            for(let i = 0; i < exchange.length; i++) {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                td.innerText = exchange[i];
+                tr.appendChild(td);
+                table.appendChild(tr);
+                
+            }
+
+            let sum = 0;
+            for(let i = 0; i < exchange.length; i++) {
+                sum += exchange[i];
+            }
+            let average = sum / exchange.length;
+            average = average.toFixed(2);
+            
+            document.getElementById('detail').innerText = 'Среднее значение: ' + average;
+            
+            let btn = document.querySelector('button[onclick="showExchange()"]');
+            if(btn) btn.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showExchange()">Курс доллара</button>
+        <table border="1" id="dollar-table"></table>
+        <div id="detail"></div>
+    </main>
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+    
+</body>
+</html>
