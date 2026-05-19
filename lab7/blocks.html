@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мильшин Роман Антонович. Лабораторная 7</title>
+    <title>Мильшин Роман Антонович. Блоки</title>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../favicon-16x16.png">
     <link rel="icon" href="../favicon-32x32.png">
     <link rel="stylesheet" href="../main.css">
+
+    <style>
+
+        div {
+            border: 1px solid red;
+            margin: 10px;
+        }
+
+    </style>
+
+    <script>
+        function addNewBlock() {
+            let newBlock = document.createElement('div');
+            newBlock.style.backgroundColor = 'pink';
+            newBlock.style.height = '40px';
+
+            document.querySelector('main').appendChild(newBlock);
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -15,9 +34,7 @@
     </header>
 
     <main>
-        <li>
-             <a href="blocks.html">Блоки</a>
-        </li>
+        <button onclick="addNewBlock()">Добавить блок</button>
     </main>
 
     <footer>
