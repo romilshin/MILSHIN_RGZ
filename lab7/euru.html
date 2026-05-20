@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мильшин Роман Антонович. Лабораторная 7</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../main.css">
+
+    <style>
+        #euro {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid black;
+            max-width: 400px;
+        }
+        .row {
+            margin: 10px;
+        }
+        .diff-up { color: red; }
+        .diff-down { color: green; }
+    </style>
+
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(response => response.json())
+                .then(json => {
+                    const euro = json.Valute.EUR;
+                    const diff = euro.Value - euro.Previous;
+                    const diffClass = diff > 0 ? 'diff-up' : (diff < 0 ? 'diff-down' : '');
+                    const arrow = diff > 0 ? '↑' : (diff < 0 ? '↓' : '→');
+                    
+                    document.getElementById('euro').innerHTML = `
+                        <h1>Курс евро</h1>
+                        <div class="row"><b>Дата:</b> ${json.Date}</div>
+                        <div class="row"><b>Текущий курс:</b> ${euro.Value.toFixed(2)} ₽</div>
+                        <div class="row"><b>Предыдущая дата:</b> ${json.PreviousDate}</div>
+                        <div class="row"><b>Курс на ${json.PreviousDate}:</b> ${euro.Previous.toFixed(2)} ₽</div>
+                        <div class="row ${diffClass}"><b>Разница:</b> ${Math.abs(diff).toFixed(2)} Руб - ${diff > 0 ? 'поднялся' : (diff < 0 ? 'опустился' : 'не изменился')}</div>
+                        <div class="row"><a href="https://www.cbr-xml-daily.ru/" target="_blank">Источник: cbr-xml-daily.ru</a></div>
+                    `;
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="getEuroExchangeRate()">Курс евро</button>
+        <div id="euro"></div>
+    </main>
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+</body>
+</html>
