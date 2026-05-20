@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мильшин Роман Антонович. Лабораторная 7</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../main.css">
+
+     <script>
+        fetch('https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok')
+            .then(response => response.json())
+            .then(data => {
+                const hourly = data.hourly;
+                const times = hourly.time;
+                const temps = hourly.temperature_2m;
+                
+                let temp8 = null, temp12 = null, temp20 = null;
+                
+                for (let i = 0; i < times.length; i++) {
+                    const date = new Date(times[i]);
+                    const hour = date.getHours();
+                    
+                    if (hour === 8 && temp8 === null) {
+                        temp8 = temps[i];
+                    }
+                    if (hour === 12 && temp12 === null) {
+                        temp12 = temps[i];
+                    }
+                    if (hour === 20 && temp20 === null) {
+                        temp20 = temps[i];
+                    }
+                }
+                
+                document.getElementById('temperature').innerHTML = `
+                    <h2>Температура на сегодня:</h2>
+                    <p>В 8:00 утра: ${temp8 !== null ? temp8 + '°C' : 'данных нет'}</p>
+                    <p>В 12:00 дня: ${temp12 !== null ? temp12 + '°C' : 'данных нет'}</p>
+                    <p>В 20:00 вечера: ${temp20 !== null ? temp20 + '°C' : 'данных нет'}</p>
+                `;
+            })
+            .catch(error => {
+                document.getElementById('temperature').innerHTML = '<p>Ошибка при загрузке данных о погоде</p>';
+                console.error('Error:', error);
+            });
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <div id="temperature"></div>
+    </main>
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+    
+   
+</body>
+</html>
