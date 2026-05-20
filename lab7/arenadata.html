@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мильшин Роман Антонович. Аренадата</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="stylesheet" href="../main.css">
+    <script src="arenadata.js"></script>
+
+    <style>
+        table {
+            background-color: white;
+        }
+    </style>
+
+    <script>
+        
+        function showArenadata() {
+            let table = document.getElementById('arenadata-table');
+         // Создаем заголовок таблицы
+            let headerRow = document.createElement('tr');
+            let th1 = document.createElement('th');
+            th1.innerText = 'Дата';
+            headerRow.appendChild(th1);
+            
+            let th2 = document.createElement('th');
+            th2.innerText = 'Цена, руб';
+            headerRow.appendChild(th2);
+            
+            let th3 = document.createElement('th');
+            th3.innerText = 'Изменение';
+            headerRow.appendChild(th3);
+            
+            table.appendChild(headerRow);
+
+            let sum = 0;
+            let min = cost[0];
+            let max = cost[0];
+
+            for(let i = 0; i < cost.length; i++) {
+                let tr = document.createElement('tr');
+                let tdDate = document.createElement('td');
+                tdDate.innerText = date[i];
+                tr.appendChild(tdDate);
+
+                let tdCost = document.createElement('td');
+                tdCost.innerText = cost[i];
+                tr.appendChild(tdCost);
+                
+                let tdDiff = document.createElement('td');
+                tdDiff.style.textAlign = 'center';
+                if (i == 0) {
+                    tdDiff.innerText = '-';
+                }
+                else {
+                    let diff = cost[i] - cost[i-1];
+                    tdDiff.innerText = diff.toFixed(2);
+
+                    if (diff > 0) {
+                        tdDiff.style.color = 'green';
+                    }
+
+                    else if (diff < 0) {
+                        tdDiff.style.color = 'red';
+                    }
+
+                    else {
+                        tdDiff.style.color = 'black';
+                    }
+
+                }
+                
+                tr.appendChild(tdDiff);
+                table.appendChild(tr);
+
+                sum += cost[i];
+                if (cost[i] < min) min = cost[i];
+                if (cost[i] > max) max = cost[i];
+                
+            }
+            
+            let average = sum / cost.length;
+    
+            let statsDiv = document.createElement('div');
+            statsDiv.style.marginTop = '10px';
+            statsDiv.innerHTML = `
+                <p>Среднее значение: ${average.toFixed(2)} руб</p>
+                <p>Минимальное значение: ${min} руб</p>
+                <p>Максимальное значение: ${max} руб</p>
+            `;
+
+            statsDiv.id = 'stats';
+            table.parentNode.insertBefore(statsDiv, table.nextSibling); 
+
+            let btn = document.querySelector('button[onclick="showArenadata()"]');
+            if(btn) btn.style.display = 'none';
+
+            // for(let i = 0; i < cost.length; i++) {
+            //     let tr = document.createElement('tr');
+            //     let td = document.createElement('td');
+            //     td.innerText = cost[i];
+            //     tr.appendChild(td);
+            //     table.appendChild(tr);
+                
+            // }   
+        }
+
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showArenadata()">Курс акций Аренадата</button>
+        <table border="1" id="arenadata-table"></table>
+    </main>
+
+    <footer>
+        &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
+    </footer>
+    
+</body>
+</html>
