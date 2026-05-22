@@ -32,8 +32,7 @@
                     const euro = json.Valute.EUR;
                     const diff = euro.Value - euro.Previous;
                     const diffClass = diff > 0 ? 'diff-up' : (diff < 0 ? 'diff-down' : '');
-                    const arrow = diff > 0 ? '↑' : (diff < 0 ? '↓' : '→');
-                    
+                
                     document.getElementById('euro').innerHTML = `
                         <h1>Курс евро</h1>
                         <div class="row"><b>Дата:</b> ${json.Date}</div>
