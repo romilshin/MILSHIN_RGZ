@@ -8,6 +8,7 @@
     <link rel="icon" href="../favicon-16x16.png">
     <link rel="icon" href="../favicon-32x32.png">
     <link rel="stylesheet" href="../main.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <header>
@@ -15,12 +16,24 @@
     </header>
 
     <main>
-        
+        <div id="app">
+            <h1 :title="messageRus">{{ message }}</h1>
+        </div>
     </main>
 
     <footer>
         &copy; Мильшин Роман, ФБИ-42, 2 курс, 2026
     </footer>
-    
+
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    message: 'Hello!',
+                    messageRus: 'Привет!',
+                }
+            },
+        }).mount('#app');
+    </script>
 </body>
 </html>
